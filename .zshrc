@@ -1,14 +1,5 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-#fi
+# homebrew
+export PATH=/opt/homebrew/bin:$PATH
 
 # Customize to your needs...
 # シェル操作をvim互換にする
@@ -52,9 +43,8 @@ zstyle ':completion:*:default' menu select
 # command Rでヒストリ検索
 bindkey ^R history-incremental-search-backward
 
-
 local prompt_location="%F{cyan}%B%~%b%f"
-local promot_mark="%B%(?,%F{magenta},%F{red})%(!,#,❯)%b"
+local promot_mark="%B%(?,%F{cyan},%F{green})%(!,#,❯)%b"
 
 # vcs_infoロード
 autoload -Uz vcs_info
@@ -63,7 +53,7 @@ setopt prompt_subst
 
 # vcsの表示
 zstyle ':vcs_info:*' formats '%s][* %F{green}%b%f'
-zstyle ':vcs_info:*' actionformats '%s][* %F{green}%b%f(%F{red}%a%f)'
+zstyle ':vcs_info:*' actionformats '%s][* %F{green}%b%f(%F{cyan}%a%f)'
 
 # プロンプト表示直前にvcs_info呼び出し
 precmd() {
